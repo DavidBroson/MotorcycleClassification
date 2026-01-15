@@ -10,6 +10,7 @@ doc = BeautifulSoup(response.text, "html.parser")
 #article = doc.find("article")
 
 print(doc)
+print("testpush")
 #table = article.find("table")
 
 # df = pd.read_html(str(table))[0].copy()
