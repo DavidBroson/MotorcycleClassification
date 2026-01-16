@@ -119,6 +119,33 @@ for i in numeric_columns:
 df_clean=filtered_data
 print(df_clean.shape)
 
+text_columns = df_clean.select_dtypes(include=['object', 'string']).columns.tolist()
+
+print(f"Filtere folgende Text-Spalten: {text_columns}\n")
+
+# Für jede Text-Spalte filtern
+for col in text_columns:
+    print(f"Verarbeite Spalte: {col}")
+    
+    # Häufigkeiten zählen
+    value_counts = df_clean[col].value_counts()
+    print(f"  Vorher: {len(value_counts)} unique values, {len(df_clean)} Zeilen")
+    
+    # Kategorien mit genug Vorkommen identifizieren
+    valid_categories = value_counts[value_counts >= min_count].index
+    
+    # Entfernte Kategorien anzeigen
+    removed = value_counts[value_counts < min_count]
+    if len(removed) > 0:
+        print(f"  Entferne {len(removed)} Kategorien mit < {min_count} Vorkommen:")
+        print(f"  {removed.to_dict()}")
+    
+    # DataFrame filtern
+    df_clean = df_clean[df_clean[col].isin(valid_categories)].copy()
+    
+    print(f"  Nachher: {df_clean[col].nunique()} unique values, {len(df_clean)} Zeilen\n")
+
+print(f"\nFinale Anzahl Zeilen: {df_clean}")
 
 
 
