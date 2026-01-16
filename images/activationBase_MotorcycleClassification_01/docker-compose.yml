@@ -8,7 +8,7 @@ services:
       - ai_system:/tmp
     command: >
       sh -c "rm -rf /tmp/activationBase/ && cp -r /activationBase/ /tmp/"
-
+#  && tail -f /dev/null"
 volumes:
   ai_system:
     external: true
