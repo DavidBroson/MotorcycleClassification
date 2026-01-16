@@ -4,6 +4,7 @@ import os
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.preprocessing import StandardScaler
 from sklearn.compose import ColumnTransformer
+import numpy as np
 
 
 
@@ -72,5 +73,52 @@ print(df_all_0.head())
 ##-------Bis zum Punkt steht doppel/Single etc-------------##
 df_clean["Front brakes"]=df_clean['Front brakes'].str.split('.').str[0]
 df_clean["Rear brakes"]=df_clean['Rear brakes'].str.split('.').str[0]
-print(df_clean.head())
+
+# mindest Wert denn eine Art haben muss an Datensatzhäufigkeit
+min_count = 100
+
+# Häufigkeiten zählen
+value_counts = df_clean['Category'].value_counts()
+#print(value_counts)
+
+# Kategorien mit genug Vorkommen identifizieren
+valid_categories = value_counts[value_counts >= min_count].index
+#print(valid_categories)
+
+# DataFrame filtern
+df_clean = df_clean[df_clean['Category'].isin(valid_categories)].copy()
+print(df_clean.shape)
+print(df_clean)
+
+
+numeric_columns = df_clean.select_dtypes(include=['number']).columns.tolist()
+
+def removeOutliers(data, col):
+    Q3 = np.quantile(data[col], 0.75)
+    Q1 = np.quantile(data[col], 0.25)
+    IQR = Q3 - Q1
+
+    print("IQR value for column %s is: %s" % (col, IQR))
+    global outlier_free_list
+    global filtered_data
+
+    lower_range = Q1 - 1.5 * IQR
+    upper_range = Q3 + 1.5 * IQR
+    outlier_free_list = [x for x in data[col] if (
+        (x > lower_range) & (x < upper_range))]
+    filtered_data = data.loc[data[col].isin(outlier_free_list)] #entsprechende Outlier free rows setzen
+
+counter=0
+for i in numeric_columns:
+    if counter == 0:
+      removeOutliers(df_clean, i)
+      counter=counter+1 # einaml mit anfangs df rein, danach mit arbeist variable
+    else: 
+      removeOutliers(filtered_data, i)
+
+df_clean=filtered_data
+print(df_clean.shape)
+
+
+
 
