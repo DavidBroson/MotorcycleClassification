@@ -1,0 +1,13 @@
+services:
+  learning_base:
+    build:
+      context: ../..
+      dockerfile: images/learningBase_MotorcycleClassification_01/Dockerfile
+    image: learningbase_motorcycleclassification
+    volumes:
+      - ai_system:/tmp
+    command: >
+      sh -c "rm -rf /tmp/learningBase/ && cp -r /learningBase/ /tmp/"
+volumes:
+  ai_system:
+    external: true
