@@ -1,2 +1,2 @@
-FROM busybox
-COPY .activation_data.csv  /activationBase/activation_data.csv
+FROM busybox:latest
+COPY ./activation_data.csv  /activationBase/activation_data.csv
