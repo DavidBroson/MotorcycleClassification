@@ -1,0 +1,40 @@
+CLASSIFICATION REPORT
+============================================================
+
+Klassen-Mapping:
+0: ATV
+1: Allround
+2: Classic
+3: Cross / motocross
+4: Custom / cruiser
+5: Enduro / offroad
+6: Naked bike
+7: Scooter
+8: Sport
+9: Sport touring
+10: Super motard
+11: Touring
+12: Unspecified category
+
+                      precision    recall  f1-score   support
+
+                 ATV       0.00      0.00      0.00        51
+            Allround       0.14      0.00      0.01       341
+             Classic       0.24      0.10      0.14       294
+   Cross / motocross       0.00      0.00      0.00        43
+    Custom / cruiser       0.39      0.52      0.44       309
+    Enduro / offroad       0.00      0.00      0.00       287
+          Naked bike       0.37      0.24      0.30       410
+             Scooter       0.37      0.91      0.53       525
+               Sport       0.35      0.47      0.40       553
+       Sport touring       0.26      0.32      0.29       225
+        Super motard       0.06      0.01      0.01       142
+             Touring       0.14      0.27      0.18       169
+Unspecified category       0.00      0.00      0.00       129
+
+            accuracy                           0.33      3478
+           macro avg       0.18      0.22      0.18      3478
+        weighted avg       0.25      0.33      0.26      3478
+
+
+Test Accuracy: 0.331
