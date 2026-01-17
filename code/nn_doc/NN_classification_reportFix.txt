@@ -1,0 +1,21 @@
+CLASSIFICATION REPORT
+============================================================
+
+
+                      precision    recall  f1-score   support
+
+             Classic       0.70      0.72      0.71       603
+   Cross / motocross       0.66      0.68      0.67       381
+          Naked bike       0.67      0.58      0.62       751
+             Scooter       0.93      0.94      0.94       525
+               Sport       0.65      0.72      0.68       778
+        Super motard       0.55      0.63      0.59       142
+             Touring       0.58      0.53      0.55       169
+Unspecified category       0.46      0.36      0.40       129
+
+            accuracy                           0.69      3478
+           macro avg       0.65      0.64      0.65      3478
+        weighted avg       0.69      0.69      0.69      3478
+
+
+Test Accuracy: 0.693
