@@ -1,0 +1,54 @@
+services:
+  activation_base:
+    build:
+      context: .
+      dockerfile: images/activationBase_MotorcycleClassification/Dockerfile
+    image: activationbase_motorcycleclassification
+    volumes:
+      - ai_system:/tmp
+    command: >
+      sh -c "rm -rf /tmp/activationBase/ && cp -r /activationBase/ /tmp/ && echo 'activationBase ready'"
+
+  learning_base:
+    build:
+      context: .
+      dockerfile: images/learningBase_MotorcycleClassification_01/Dockerfile
+    image: learningbase_motorcycleclassification
+    volumes:
+      - ai_system:/tmp
+    command: >
+      sh -c "rm -rf /tmp/learningBase/ && cp -r /learningBase/ /tmp/ && echo 'learningBase ready'"
+
+  knowledge_base:
+    build:
+      context: .
+      dockerfile: images/knowledgeBase_MotorcycleClassification/Dockerfile
+    image: knowledgebase_motorcycleclassification
+    volumes:
+      - ai_system:/tmp
+    command: >
+      sh -c "rm -rf /tmp/knowledgeBase/ && cp -r /knowledgeBase/ /tmp/ && echo 'knowledgeBase ready'"
+
+  code_base:
+    build:
+      context: .
+      dockerfile: images/codeBase_MotorcycleClassification/Dockerfile
+    image: codebase_motorcycleclassification
+    volumes:
+      - ai_system:/tmp
+    depends_on:
+      - activation_base
+      - learning_base
+      - knowledge_base
+    command: >
+      sh -c "
+        echo 'Waiting for data...' && 
+        sleep 5 && 
+        cp -r /codeBase/ /tmp/ && 
+        cd /tmp/codeBase && 
+        python3 App01.py
+      "
+
+volumes:
+  ai_system:
+    external: true

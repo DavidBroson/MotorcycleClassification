@@ -1,0 +1,13 @@
+services:
+  knowledge_base:
+    build:
+      context: ../..
+      dockerfile: images/knowledgeBase_MotorcycleClassification/Dockerfile
+    image: knowledgebase_motorcycleclassification
+    volumes:
+      - ai_system:/tmp
+    command: >
+      sh -c "rm -rf /tmp/knowledgeBase/ && cp -r /knowledgeBase/ /tmp/"
+volumes:
+  ai_system:
+    external: true

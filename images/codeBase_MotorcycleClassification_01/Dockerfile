@@ -1,9 +1,14 @@
-FROM busybox:latest
+FROM tensorflow/tensorflow:latest
 
-RUN apt-get update && apt-get install -y python3 python3-pip
-RUN pip3 install matplotlib
-Run pip3 install SciPy
-Run pip3 install scikit-learn
-Run pip3 install pandas
+# Zusätzliche Dependencies installieren
+RUN pip3 install --no-cache-dir \
+    matplotlib \
+    scipy \
+    scikit-learn \
+    pandas \
+    statsmodels
 
-Add ./../../code/annRequests_TensorFlow /codeBase/
+COPY code/App01.py /codeBase/App01.py
+
+# Script ausführen
+CMD ["python3", "/codeBase/App01.py"]

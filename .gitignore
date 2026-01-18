@@ -9,3 +9,5 @@ code/logs
 code/experiments/logs
 code/messageClient/logs
 /.venv
+
+.vscode/
