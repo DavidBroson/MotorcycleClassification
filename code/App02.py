@@ -63,7 +63,7 @@ predicted_labels_mnl = le.inverse_transform(predictions_mnl)
 # ================== 3. VORHERSAGEN ANN ==================
 
 # Vorhersagen machen mit TensorFlow
-predictions_proba_ann = model_ann.predict(X[numeric_values])
+predictions_proba_ann = model_ann.predict(X)
 
 # Die Klasse mit der höchsten Wahrscheinlichkeit auswählen
 predictions_ann = np.argmax(predictions_proba_ann, axis=1)
