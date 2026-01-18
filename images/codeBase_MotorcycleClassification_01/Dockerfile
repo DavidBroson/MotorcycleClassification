@@ -1,12 +1,14 @@
-FROM tensorflow/tensorflow:2.15.0
+FROM python:3.13.9
 
-# Zusätzliche Dependencies installieren
+# TensorFlow und zusätzliche Dependencies installieren
 RUN pip3 install --no-cache-dir \
+    tensorflow \
     matplotlib \
     scipy \
     scikit-learn \
     pandas \
-    statsmodels
+    statsmodels \
+    numpy
 
 COPY code/App02.py /codeBase/App01.py
 
