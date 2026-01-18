@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: images/activationBase_MotorcycleClassification_01/Dockerfile
-    image: dbrockmeyer/activationbase_motorcycleclassification
+    image: activationbase_motorcycleclassification
     volumes:
       - ai_system:/tmp
     command: >
@@ -13,7 +13,7 @@ services:
     build:
       context: .
       dockerfile: images/learningBase_MotorcycleClassification_01/Dockerfile
-    image: dbrockmeyer/learningbase_motorcycleclassification
+    image: learningbase_motorcycleclassification
     volumes:
       - ai_system:/tmp
     command: >
@@ -23,7 +23,7 @@ services:
     build:
       context: .
       dockerfile: images/knowledgeBase_MotorcycleClassification_01/Dockerfile
-    image: dbrockmeyer/knowledgebase_motorcycleclassification
+    image: knowledgebase_motorcycleclassification
     volumes:
       - ai_system:/tmp
     command: >
@@ -33,7 +33,7 @@ services:
     build:
       context: .
       dockerfile: images/codeBase_MotorcycleClassification_01/Dockerfile
-    image: dbrockmeyer/codebase_motorcycleclassification
+    image: codebase_motorcycleclassification
     volumes:
       - ai_system:/tmp
     depends_on:

@@ -1,85 +1,73 @@
-# Data Provision Image – MotorcycleClassification
+# activationBase_MotorcycleClassification_01
 
-## Ownership
-This Docker image and the contained dataset were created and assembled by **David Brockmeyer and Alexander Breuer**  
-as part of an academic project at the **University of Potsdam**.
+Docker image providing activation data for motorcycle classification inference.
 
-## Academic Context
-This image was created within the course
+---
 
-> **“M. Grum: Advanced AI-based Application Systems”**
+## Purpose
 
-offered by the
+This image provides sample activation data (`activation_data.csv`) that can be used to test and demonstrate the motorcycle classification system. The activation data contains a single motorcycle entry with performance specifications that will be classified by the trained AI/OLS models.
 
-> **Junior Chair for Business Information Science,  
-> esp. AI-based Application Systems,  
-> University of Potsdam**
+The data is made available at the path `/tmp/activationBase/` for consumption by the codeBase image during model inference.
 
-The image serves exclusively academic, non-commercial purposes in the context of this course.
+---
 
-## Purpose of the Image
-This Docker image is a **data provision image**.  
-It does not execute any application logic and does not contain a running service.
+## Authors
 
-Its sole purpose is to provide application-relevant data files at predefined paths inside the container filesystem, so that they can be mounted into an external Docker volume and consumed by downstream AI components (e.g. training, validation, or activation pipelines).
+- **Alexander Breuer**
+- **David Brockmeyer**
 
-The concrete internal directory structure reflects the requirements of the corresponding AI application implementation.
+---
+
+## Course Information
+
+This image was created as part of the course **"Advanced AI-based Application Systems"** by the **Junior Chair for Business Information Systems, esp. AI-based Application Systems** at the **University of Potsdam**, supervised by **M. Grum, Chairholder**.
+
+---
 
 ## Data Origin
-The contained dataset was **scraped and compiled from publicly accessible web sources** related to motorcycle classification and visual vehicle data.
 
-The data collection process was conducted for **educational and research purposes only**.  
-No personal data was collected.  
-The dataset was not enriched with proprietary or restricted information.
+**Dataset**: The dataset used for AI training was scraped by Victor Megir from Bikez.com and contains approximately 38,000 motorcycle models. The dataset was published on Kaggle.com and subsequently transformed and adapted for this project's specific classification purposes.
 
-Any trademarks, product names, or brand references remain the property of their respective owners.
+**Original Data Source**: https://www.kaggle.com/datasets/victormegir/bikes-from-bikezcom
 
-## Dataset Organization
-The internal dataset organization depends on the AI application pipeline and is therefore intentionally minimal.
+---
 
-Depending on the image variant, data is provided under paths such as:
+## 
+Docker Usage
 
-- `/tmp/learningBase/train/`
-- `/tmp/learningBase/validation/`
-- `/tmp/activationBase/`
-
-The exact structure is aligned with the consuming AI system and is not intended as a general-purpose dataset layout.
-
-## Licensing
-This Docker image and its contents are published under the terms of the
-
-> **GNU Affero General Public License v3.0 (AGPL-3.0)**
-
-By using this image, you agree to comply with the obligations of the AGPL-3.0 license.  
-The license text applies to both the image configuration and the provided dataset, unless stated otherwise by upstream data sources.
-
-## Technical Notes
-- Base image: `busybox`
-- This image is designed to be used together with an external Docker volume named `ai_system`
-- Typical usage mounts the internal `/tmp` directory to the external volume via:
+### Pull the Image
 
 ```bash
-docker volume create ai_system
+docker pull yourusername/activationbase_motorcycleclassification
 ```
 
-- The files in the volume in the directory /tmp can be seen via the command:
+### Run the Image
 
 ```bash
-docker run --rm -v ai_system:/tmp busybox sh -c "find /tmp -maxdepth 6 -type f -print | sort"
-```
-
-- Image functionality can be tested using an image-specific `docker-compose.yml` file
-
-```bash
-docker compose up -d --build
+docker run -v ai_system:/tmp yourusername/activationbase_motorcycleclassification
 ```
 
 
-## Docker Hub
-This image is published on Docker Hub and can be pulled using:
 
-```bash
-docker pull <dockerhub-username>/<image-name>
-```
+##  Image Contents
+
+- **activation_data.csv**: Sample motorcycle data for classification
+- **README.md**: This documentation file
 
 
+---
+
+## 📝 License
+
+This image and its contents are licensed under the **AGPL-3.0 License**.
+
+---
+
+## 🔗 Related Resources
+
+- **Main Project Repository**: [\[GitHub Repository Link\]](https://github.com/DavidBroson/MotorcycleClassification)
+- **Docker Hub Link**: https://hub.docker.com/repository/docker/dbrockmeyer/activationbase_motorcycleclassification
+- **Original AI-CPS Framework**: https://github.com/MarcusGrum/AI-CPS
+
+---

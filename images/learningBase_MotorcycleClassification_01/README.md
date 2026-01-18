@@ -1,96 +1,86 @@
-docker compose up -d --build
+# learningBase_MotorcycleClassification_01
 
-prüfen ob Dateien existieren:
+Docker image providing training and validation datasets for motorcycle classification model development.
 
+---
 
-ggf. ergänzen sodass container instanz weiter läuft
- && tail -f /dev/null"
+## Purpose
 
+This image provides the complete dataset split for training and testing machine learning models for motorcycle classification. It contains:
+- **Training data** (80% of the dataset) for model training
+- **Test/Validation data** (20% of the dataset) for model evaluation
 
+The data is structured to enable reproducible model development and performance evaluation.
 
+The datasets are made available at:
+- `/tmp/learningBase/train/training_data.csv`
+- `/tmp/learningBase/validation/test_data.csv`
 
-# Data Provision Image – MotorcycleClassification
+---
 
-## Ownership
-This Docker image and the contained dataset were created and assembled by **David Brockmeyer and Alexander Breuer**  
-as part of an academic project at the **University of Potsdam**.
+## Authors
 
-## Academic Context
-This image was created within the course
+- **Alexander Breuer**
+- **David Brockmeyer**
 
-> **“M. Grum: Advanced AI-based Application Systems”**
+---
 
-offered by the
+## Course Information
 
-> **Junior Chair for Business Information Science,  
-> esp. AI-based Application Systems,  
-> University of Potsdam**
+This image was created as part of the course **"Advanced AI-based Application Systems"** by the **Junior Chair for Business Information Systems, esp. AI-based Application Systems** at the **University of Potsdam**, supervised by **M. Grum, Chairholder**.
 
-The image serves exclusively academic, non-commercial purposes in the context of this course.
-
-## Purpose of the Image
-This Docker image is a **data provision image**.  
-It does not execute any application logic and does not contain a running service.
-
-Its sole purpose is to provide application-relevant data files at predefined paths inside the container filesystem, so that they can be mounted into an external Docker volume and consumed by downstream AI components (e.g. training, validation, or activation pipelines).
-
-The concrete internal directory structure reflects the requirements of the corresponding AI application implementation.
+---
 
 ## Data Origin
-The contained dataset was **scraped and compiled from publicly accessible web sources** related to motorcycle classification and visual vehicle data.
 
-The data collection process was conducted for **educational and research purposes only**.  
-No personal data was collected.  
-The dataset was not enriched with proprietary or restricted information.
+**Dataset**: The dataset used for AI training was scraped by Victor Megir from Bikez.com and contains approximately 38,000 motorcycle models. The dataset was published on Kaggle.com and subsequently transformed and adapted for this project's specific classification purposes.
 
-Any trademarks, product names, or brand references remain the property of their respective owners.
+**Original Data Source**: https://www.kaggle.com/datasets/victormegir/bikes-from-bikezcom
 
-## Dataset Organization
-The internal dataset organization depends on the AI application pipeline and is therefore intentionally minimal.
+---
 
-Depending on the image variant, data is provided under paths such as:
+## Docker Usage
 
-- `/tmp/learningBase/train/`
-- `/tmp/learningBase/validation/`
-- `/tmp/activationBase/`
-
-The exact structure is aligned with the consuming AI system and is not intended as a general-purpose dataset layout.
-
-## Licensing
-This Docker image and its contents are published under the terms of the
-
-> **GNU Affero General Public License v3.0 (AGPL-3.0)**
-
-By using this image, you agree to comply with the obligations of the AGPL-3.0 license.  
-The license text applies to both the image configuration and the provided dataset, unless stated otherwise by upstream data sources.
-
-## Technical Notes
-- Base image: `busybox`
-- This image is designed to be used together with an external Docker volume named `ai_system`
-- Typical usage mounts the internal `/tmp` directory to the external volume via:
+### Pull the Image
 
 ```bash
-docker volume create ai_system
+docker pull yourusername/learningbase_motorcycleclassification_01
 ```
 
-- The files in the volume in the directory /tmp can be seen via the command:
+### Run the Image
 
 ```bash
-docker run --rm -v ai_system:/tmp busybox sh -c "find /tmp -maxdepth 6 -type f -print | sort"
-```
-
-- Image functionality can be tested using an image-specific `docker-compose.yml` file
-
-```bash
-docker compose up -d --build
+docker run -v ai_system:/tmp yourusername/learningbase_motorcycleclassification
 ```
 
 
-## Docker Hub
-This image is published on Docker Hub and can be pulled using:
+---
 
-```bash
-docker pull <dockerhub-username>/<image-name>
+##  Image Contents
+
+- **training_data.csv**: Training dataset (80% of total data)
+- **test_data.csv**: Validation/testing dataset (20% of total data)
+- **README.md**: This documentation file
+
+### Data Locations
+
+```
+/tmp/learningBase/train/training_data.csv
+/tmp/learningBase/validation/test_data.csv
 ```
 
+---
 
+## License
+
+This image and its contents are licensed under the **AGPL-3.0 License**.
+
+---
+
+## Related Resources
+
+- **Main Project Repository**: https://github.com/DavidBroson/MotorcycleClassification
+- **Docker Hub Profile**:https://hub.docker.com/repository/docker/dbrockmeyer/learningbase_motorcycleclassification
+- **Original AI-CPS Framework**: https://github.com/MarcusGrum/AI-CPS
+
+---
