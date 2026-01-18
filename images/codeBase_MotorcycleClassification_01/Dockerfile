@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest
+FROM tensorflow/tensorflow:2.15.0
 
 # Zusätzliche Dependencies installieren
 RUN pip3 install --no-cache-dir \
@@ -8,7 +8,7 @@ RUN pip3 install --no-cache-dir \
     pandas \
     statsmodels
 
-COPY code/App01.py /codeBase/App01.py
+COPY code/App02.py /codeBase/App01.py
 
 # Script ausführen
 CMD ["python3", "/codeBase/App01.py"]

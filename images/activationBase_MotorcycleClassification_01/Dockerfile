@@ -1,2 +1,2 @@
 FROM busybox:latest
-COPY ./activation_data.csv  /activationBase/activation_data.csv
+COPY images/activationBase_MotorcycleClassification_01/activation_data.csv  /activationBase/activation_data.csv

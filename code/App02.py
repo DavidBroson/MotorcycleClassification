@@ -45,7 +45,7 @@ with open(os.path.join(path, 'knowledgeBase', 'currentSolution_mnl.pkl'), 'rb') 
 print("MNLogit Modell geladen")
 
 # Keras/TensorFlow Modell laden
-model_path = os.path.join(path, 'knowledgeBase', 'CurrentSolution_ann.h5')
+model_path = os.path.join(path, 'knowledgeBase', 'currentSolution_ann.h5')
 model_ann = keras.models.load_model(model_path)
 print("ANN Modell geladen")
 
