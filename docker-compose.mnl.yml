@@ -43,10 +43,10 @@ services:
     command: >
       sh -c "
         echo 'Waiting for data...' && 
-        sleep 5 && 
+        sleep 1 && 
         cp -r /codeBase/ /tmp/ && 
         cd /tmp/codeBase && 
-        python3 App02.py
+        python3 App01.py
       "
 
 volumes:

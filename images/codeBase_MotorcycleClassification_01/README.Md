@@ -43,7 +43,7 @@ This image was created as part of the course **"Advanced AI-based Application Sy
 ### Pull the Image
 
 ```bash
-docker pull yourusername/codebase_motorcycleclassification_01
+docker pull dbrockmeyer/codebase_motorcycleclassification
 ```
 
 **Note**: Standalone run not recommended, because Data from KnowledgeBase and ActivationBase is required.

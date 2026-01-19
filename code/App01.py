@@ -52,20 +52,20 @@ print("\nVorhersage von MNLogit-Model:")
 for i, label in enumerate(predicted_labels, 1):
     print(f"Motorrad {i}: {label}")
 
-from sklearn.metrics import classification_report
-# Classification Report
-print("\n" + "="*60)
-print("Classification Report:")
-print("="*60)
-print(classification_report(y_test, predicted_labels))
+# from sklearn.metrics import classification_report
+# # Classification Report
+# print("\n" + "="*60)
+# print("Classification Report:")
+# print("="*60)
+# print(classification_report(y_test, predicted_labels))
 
-print("\n====================================================================\n")
+# print("\n====================================================================\n")
 
-# Ausgabe in CLI
-print("\nVorhersage von MNLogit-Model:")
-print("="*60)
-for i, (actual, predicted) in enumerate(zip(y_test, predicted_labels), 1):
-    print(f"Motorrad {i}: Tatsächlich: {actual:20s} | Vorhergesagt: {predicted}")
+# # Ausgabe in CLI
+# print("\nVorhersage von MNLogit-Model:")
+# print("="*60)
+# for i, (actual, predicted) in enumerate(zip(y_test, predicted_labels), 1):
+#     print(f"Motorrad {i}: Tatsächlich: {actual:20s} | Vorhergesagt: {predicted}")
 
 
 

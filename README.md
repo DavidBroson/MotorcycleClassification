@@ -84,9 +84,19 @@ docker volume create ai_system
 
 ### Run the Application with pulled images
 
+Run a comparison between actual values, ANN- and MNL-Model.
 ```bash
 docker-compose up
 ```
+Run ANN-Model
+```bash
+docker-compose -f docker-compose.ann.yml up
+```
+Run MNL-Model
+```bash
+docker-compose -f docker-compose.mnl.yml up
+```
+
 ### Install images locally and run afterwards
 ```bash
 docker-compose up --build

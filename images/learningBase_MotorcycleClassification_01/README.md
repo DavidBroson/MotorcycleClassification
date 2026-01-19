@@ -44,7 +44,7 @@ This image was created as part of the course **"Advanced AI-based Application Sy
 ### Pull the Image
 
 ```bash
-docker pull yourusername/learningbase_motorcycleclassification_01
+docker pull dbrockmeyer/learningbase_motorcycleclassification
 ```
 
 ### Run the Image
@@ -80,7 +80,7 @@ This image and its contents are licensed under the **AGPL-3.0 License**.
 ## Related Resources
 
 - **Main Project Repository**: https://github.com/DavidBroson/MotorcycleClassification
-- **Docker Hub Profile**:https://hub.docker.com/repository/docker/dbrockmeyer/learningbase_motorcycleclassification
+- **Docker Hub Profile**:https://hub.docker.com/repository/docker/dbrockmeyer
 - **Original AI-CPS Framework**: https://github.com/MarcusGrum/AI-CPS
 
 ---

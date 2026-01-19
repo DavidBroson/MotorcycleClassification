@@ -42,13 +42,13 @@ This image was created as part of the course **"Advanced AI-based Application Sy
 ### Pull the Image
 
 ```bash
-docker pull yourusername/knowledgebase_motorcycleclassification
+docker pull dbrockmeyer/knowledgebase_motorcycleclassification
 ```
 
 ### Run the Image
 
 ```bash
-docker run -v ai_system:/tmp yourusername/knowledgebase_motorcycleclassification
+docker run -v ai_system:/tmp dbrockmeyer/knowledgebase_motorcycleclassification
 ```
 
 ---

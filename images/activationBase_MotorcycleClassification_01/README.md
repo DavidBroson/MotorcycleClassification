@@ -39,13 +39,13 @@ Docker Usage
 ### Pull the Image
 
 ```bash
-docker pull yourusername/activationbase_motorcycleclassification
+docker pull dbrockmeyer/activationbase_motorcycleclassification
 ```
 
 ### Run the Image
 
 ```bash
-docker run -v ai_system:/tmp yourusername/activationbase_motorcycleclassification
+docker run -v ai_system:/tmp dbrockmeyer/activationbase_motorcycleclassification
 ```
 
 
@@ -66,7 +66,7 @@ This image and its contents are licensed under the **AGPL-3.0 License**.
 
 ## 🔗 Related Resources
 
-- **Main Project Repository**: [\[GitHub Repository Link\]](https://github.com/DavidBroson/MotorcycleClassification)
+- **Main Project Repository**: https://github.com/DavidBroson/MotorcycleClassification)
 - **Docker Hub Link**: https://hub.docker.com/repository/docker/dbrockmeyer/activationbase_motorcycleclassification
 - **Original AI-CPS Framework**: https://github.com/MarcusGrum/AI-CPS
 
